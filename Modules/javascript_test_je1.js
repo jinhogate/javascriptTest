@@ -1,6 +1,4 @@
 
-
-function initTest() {
     var arrayNumbers = new Array(9);
     arrayNumbers[0] = "4 2 7 3 5 1 9 8 6";
     arrayNumbers[1] = "9 8 3 7 6 2 5 1 4";
@@ -11,5 +9,3 @@ function initTest() {
     arrayNumbers[6] = "8 7 2 9 1 3 6 4 5";
     arrayNumbers[7] = "3 9 5 4 2 6 8 4 1";
     arrayNumbers[8] = "6 1 4 5 7 8 3 9 6";
-    localStorage.setItem('arrayNumber', JSON.stringify(arrayNumbers));
-}
