@@ -1,0 +1,10 @@
+export var arrayNumber = new Array(9);
+arrayNumber[0]= "4 2 7 3 5 1 9 8 6";
+arrayNumber[1]= "9 8 3 7 6 2 5 1 4";
+arrayNumber[2]= "1 5 6 8 9 4 4 5 3";
+arrayNumber[3]= "2 3 9 1 8 5 4 6 7";
+arrayNumber[4]= "7 4 1 2 3 9 2 5 8";
+arrayNumber[5]= "5 6 8 2 4 7 1 3 9";
+arrayNumber[6]= "8 7 2 9 1 3 6 4 5";
+arrayNumber[7]= "3 9 5 4 2 6 8 4 1";
+arrayNumber[8]= "6 1 4 5 7 8 3 9 6";
