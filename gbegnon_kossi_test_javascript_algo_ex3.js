@@ -1,22 +1,97 @@
-import { toVerify } from './gbegnon_kossi_test_javascript_algo_ex2.js';
-import { arrayDigitsVerify } from './gbegnon_kossi_test_javascript_algo_ex1.js';
-
+function initex3(){
+    
+let arrayDigitsVerifys = JSON.parse(localStorage.getItem('arrayDigitsVerify'));
 let tabColumn;
 let tabRegion;
-let long = arrayDigitsVerify.length;
+let long = arrayDigitsVerifys.length;
 tabRegion = new Array(long);
 tabColumn = new Array(long);
+console.log(long)
+/**
+ *   Call to verify function 
+ */
+
+/**
+ * This function allows us to validate the position rule in the table provided 
+ * position can be {Horizontal position, or vertical or region and it is a table with 9 cells}
+ */
+
+function toVerify(tableDigitsPosition) {
+    if (tableDigitsPosition instanceof Array) {
+        if (isAllNumber(tableDigitsPosition) && isAllDifferent(tableDigitsPosition)) {
+            return true;
+        }
+    } else {
+        return "Error! l'input n'est pas un tableau";
+    }
+    return false;
+}
+
+
+/**
+ * This function verifys if the all value in position'cells are the number
+ * return true if they are number, false else
+ */
+function isAllNumber(tableDigitsPosition) {
+    const res = tableDigitsPosition.every(element => {
+        return (element > 0);
+    });
+    return res;
+}
+
+/**
+ * This function check wheter the numbers are each other different
+ * return true if the value are different each other and false else
+ */
+function isAllDifferent(tableDigitsPosition) {
+    let tab = [];
+    toCopyArrayNumber(tableDigitsPosition, tab);
+    let currentValue = 0;
+    let nextValue = 0;
+    let long = tab.length;
+    tab.sort((a, b) => a - b); //order the element in tab by croissance
+    for (let i = 0; i < long - 1; i++) {
+        currentValue = tab[i];
+        nextValue = tab[i + 1];
+        if (currentValue === nextValue) {
+            return false;
+        }
+    }
+    return true;
+}
+
+/**
+ * This function allows us to copy element'of a table in another one
+ * @param {This } arrayToCopy 
+ * @param {*} arrayTab 
+ */
+function toCopyArrayNumber(arrayToCopy, arrayTab) {
+    if (arrayToCopy instanceof Array && arrayTab instanceof Array) {
+        let counter = 0;
+        arrayToCopy.forEach(element => {
+            arrayTab[counter] = element;
+            counter++;
+        })
+    } else {
+        console.log("Error! les paramètres d'entrée devraient être des Array")
+    }
+}
+ /**
+  * End of the call
+  */
+
+
 /**
  * This unction validate each position of arrayNumber provided and display error message if there are.
  * @param {*} message 
  * @param {*} tab 
  */
-function toValidate(message, tab, id) {
+function toValidate(message, tab) {
     if (tab instanceof Array) {
         let positon = 0;
         tab.forEach(element => {
             if (!toVerify(element)) {
-                toDisplay(message, positon, element, id);
+                toDisplay(message, positon, element);
             }
             positon++;
         });
@@ -34,7 +109,7 @@ const getColumnTable = function () {
     while (counter < long) {
         tabColumn[counter] = new Array(long);
         for (let i = 0; i < long; i++) {
-            tabColumn[counter][i] = arrayDigitsVerify[i][counter];
+            tabColumn[counter][i] = arrayDigitsVerifys[i][counter];
         }
         counter++;
     }
@@ -54,7 +129,7 @@ function toReadRegion(lineRegion, columnRegion) {
             i = (columnRegion - 3);// reset the counter 
             lineRegion++;//deal now with the line below 
         }
-        region += arrayDigitsVerify[lineRegion][i].toString();
+        region += arrayDigitsVerifys[lineRegion][i].toString();
     }
     return region.split('');
 }
@@ -78,7 +153,7 @@ const getRegionTable = function () {
  * @param {*} position 
  * @param {*} errorPositionValues 
  */
-function toDisplay(message, position, errorPositionValues, id) {
+function toDisplay(message, position, errorPositionValues) {
     let errorMessage = `${message} ${position+1} incorrect ${errorPositionValues}`;
     let p = document.createElement("p");
     let content = document.createTextNode(errorMessage);
@@ -92,13 +167,15 @@ function toDisplay(message, position, errorPositionValues, id) {
  * All of methods to verify every position and display error
  */
 (function toValidateLine() {
-    toValidate('Ligne', arrayDigitsVerify, 'lineError');
+    toValidate('Ligne', arrayDigitsVerifys);
 })();
 
 (function toValidateColumn() {
-    toValidate('Column', getColumnTable(), 'columnError');
+    toValidate('Column', getColumnTable());
 })();
 
 (function toValidateRegion() {
-    toValidate('Region', getRegionTable(), 'regionError');
+    toValidate('Region', getRegionTable());
 })();
+
+}

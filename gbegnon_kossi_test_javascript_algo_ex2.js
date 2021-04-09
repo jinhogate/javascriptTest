@@ -3,7 +3,8 @@
  * position can be {Horizontal position, or vertical or region and it is a table with 9 cells}
  * @param {*} tableDigitsPosition 
  */
-export function toVerify(tableDigitsPosition) {
+
+ function toVerify(tableDigitsPosition) {
     if (tableDigitsPosition instanceof Array) {
         if (isAllNumber(tableDigitsPosition) && isAllDifferent(tableDigitsPosition)) {
             return true;
@@ -13,6 +14,7 @@ export function toVerify(tableDigitsPosition) {
     }
     return false;
 }
+
 
 /**
  * This function verifys if the all value in position'cells are the number
