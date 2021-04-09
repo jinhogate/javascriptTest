@@ -3,7 +3,6 @@
  * position can be {Horizontal position, or vertical or region and it is a table with 9 cells}
  * @param {*} tableDigitsPosition 
  */
-
  function toVerify(tableDigitsPosition) {
     if (tableDigitsPosition instanceof Array) {
         if (isAllNumber(tableDigitsPosition) && isAllDifferent(tableDigitsPosition)) {
@@ -14,8 +13,6 @@
     }
     return false;
 }
-
-
 /**
  * This function verifys if the all value in position'cells are the number
  * @param {*} tableDigitsPosition 
@@ -27,7 +24,6 @@ function isAllNumber(tableDigitsPosition) {
     });
     return res;
 }
-
 /**
  * This function check wheter the numbers are each other different
  * @param {*} tableDigitsPosition 
@@ -49,7 +45,6 @@ function isAllDifferent(tableDigitsPosition) {
     }
     return true;
 }
-
 /**
  * This function allows us to copy element'of a table in another one
  * @param {This } arrayToCopy 
@@ -66,7 +61,3 @@ function toCopyArrayNumber(arrayToCopy, arrayTab) {
         console.log("Error! les paramètres d'entrée devraient être des Array")
     }
 }
-
-
-
-

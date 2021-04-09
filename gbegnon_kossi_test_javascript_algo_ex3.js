@@ -21,7 +21,6 @@ function toValidate(message, tab) {
         console.log("Error! le paramètre attendu est un Array");
     }
 }
-
 /**
  * This function transposes line of arrayNumber provided to column
  * and return the new array create in the getColumnTable variable
@@ -37,7 +36,6 @@ const getColumnTable = function () {
     }
     return tabColumn;
 }
-
 /**
  * This function is used to produce the rgion part in the arrayNumber provided
  * @param {*} lineRegion 
@@ -68,7 +66,6 @@ const getRegionTable = function () {
     }
     return tabRegion;
 }
-
 /**
  * This function displays the error message if there are, displays the index position and their elements
  * @param {*} message 
@@ -77,25 +74,22 @@ const getRegionTable = function () {
  */
 function toDisplay(message, position, errorPositionValues) {
     let errorMessage = `${message} ${position + 1} incorrect ${errorPositionValues}`;
-    let p = document.createElement("p");
+    let docElement = document.createElement("li");
     let content = document.createTextNode(errorMessage);
-    p.appendChild(content);
+    docElement.appendChild(content);
     let pError = document.getElementById('Error');
-    document.body.insertBefore(p, pError);
-    console.log(errorMessage);
+    document.body.insertBefore(docElement, pError);
 }
-
 /**
  * All of methods to verify every position and display error
  */
-(function toValidateLine() {
+function toValidateLine() {
     toValidate('Ligne', arrayDigitsVerify);
-})();
-
-(function toValidateColumn() {
+};
+function toValidateColumn() {
     toValidate('Column', getColumnTable());
-})();
+};
 
-(function toValidateRegion() {
+function toValidateRegion() {
     toValidate('Region', getRegionTable());
-})();
+};

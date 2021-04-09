@@ -1,4 +1,3 @@
-
 let arrayDigitsVerify = new Array(9);
 /**
  * This function is used to copy arrayNumbers's data to arrayDigitsVerify
@@ -35,8 +34,3 @@ function toDisplayInHtmlTable() {
     });
     document.getElementById('table').innerHTML = displayInLine;
 }
-
-toReadarrayNumbers(arrayNumbers, arrayDigitsVerify);
-toDisplayInHtmlTable();
-   // localStorage.setItem('arrayDigitsVerify', JSON.stringify(arrayDigitsVerify));
-//}

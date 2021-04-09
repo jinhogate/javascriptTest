@@ -3,11 +3,16 @@
 
 <head>
     <title> Ma page script sudoku</title>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
+    <style>
+        *{
+            margin: 2px;
+        }
+    </style>
 </head>
 
 <body onload="toReadarrayNumbers(arrayNumbers, arrayDigitsVerify);
-toDisplayInHtmlTable()">
+toDisplayInHtmlTable();toValidateLine();toValidateColumn();toValidateRegion()">
     <h1>Table du jeu</h1>
     <table id="table">
     </table>
